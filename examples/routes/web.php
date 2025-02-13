@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\AjaxController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +20,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admintest', function () {
     return view('admintest');
 });
+
+//Route::get('/addNewBook', [BooksController::class, 'loadBookEntryPage']);
+//Route::post('/saveBookDetails', [BooksController::class, 'saveBookDetails']);
+
+Route::get('/ajaxCombo', [AjaxController::class, 'loadAjaxComboPage']);
+Route::get('/getAllBlocks/{district}', [AjaxController::class, 'loadBlocks']);
