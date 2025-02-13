@@ -2,6 +2,7 @@
 <form method="POST" action="/save">
 
     @csrf
+
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" ><br>
         @if($errors->has('name'))
@@ -9,8 +10,15 @@
             {{ $errors->first('name') }}
             </div>
         @endif
+
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email" ><br>
+       <div style="color:red"> @if($errors->has('email'))
+            <div class="alert alert-danger">
+            {{ $errors->first('email') }}
+            </div>
+        @endif</div>
+
     <label for="message">Message:</label><br>
     <textarea id="message" name="message"></textarea><br>
     <button type="submit">Submit</button>
